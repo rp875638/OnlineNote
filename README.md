@@ -33,12 +33,12 @@ the concentration of student.
 ##### Screenshot of website
 <hr>
 
-![alt Screenshot of first page](Images/Screenshot%202021-09-11%20102713.png)
-![alt Screenshot of first profile](Images/Screenshot%202021-09-11%20102334.png)
-![alt Screenshot of first page](Images/Screenshot%202021-09-11%20102749.png)
-![alt Screenshot of first page](Images/Screenshot%202021-09-11%20102830.png)
-![alt Screenshot of first page](Images/Screenshot%202021-09-11%20102922.png)
-![alt Screenshot of first page](Images/Screenshot%202021-09-11%20103006.png)
+![alt Screenshot of first page](Images/Screenshot%202021-09-11%20102713.png "Dashboard")
+![alt Screenshot of first profile](Images/Screenshot%202021-09-11%20102334.png "Profile modal")
+![alt Screenshot of first page](Images/Screenshot%202021-09-11%20102749.png "Heading modal")
+![alt Screenshot of first page](Images/Screenshot%202021-09-11%20102830.png "Subheading modal")
+![alt Screenshot of first page](Images/Screenshot%202021-09-11%20102922.png "Answer modal")
+![alt Screenshot of first page](Images/Screenshot%202021-09-11%20103006.png "Add image modal")
 
 
 ##### Links
