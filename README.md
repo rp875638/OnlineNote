@@ -40,6 +40,22 @@ the concentration of student.
 ![alt Screenshot of first page](Images/Screenshot%202021-09-11%20102922.png "Answer modal")
 ![alt Screenshot of first page](Images/Screenshot%202021-09-11%20103006.png "Add image modal")
 
+#### Tech stack
+<hr>
+
+- HTML
+- CSS
+- Bootstrap
+
+##### Features
+<hr>
+
+- Dashboard
+- User profile modal
+- Add heading modal
+- Add subheading modal
+- Add answer modal
+- Add image modal
 
 ##### Links
 <hr>
