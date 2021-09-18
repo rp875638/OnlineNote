@@ -1,0 +1,30 @@
+.code-block{
+            padding:0;
+            white-space:0;
+        }
+        pre {
+            display: block;
+            margin-left: 0px;
+        }
+        code, pre {
+            font-family: var(--bs-font-monospace);
+            font-size: 1em;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+        .function{
+            color:#F71467;
+        }
+        .dataType{
+            color:#401FE5;
+        }
+
+        .comment{
+            color:#14F723;
+        }
+        .keyword{
+        color:#F714D1;
+        }
+        .operator{
+            color:#15F4D7;
+        }

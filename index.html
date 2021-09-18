@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 
 <head>
     <meta charset="utf-8">
@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/code.css">
     <!-- Scrollbar Custom CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
@@ -202,24 +203,28 @@
             </div>
             <div class="card mb-5">
                 <div class="card-body">
+                    <button type="button" class="btn mr-auto" onclick="copy('#subset-sum-problem-code')">copy</button>
                     <pre style="font-size:20px">
-                        int subSetProblem(int[] array, int length, int totalSum){
-                            if (totalSum == 0){
-                                return 1;
-                            }
-                            else if (totalSum != 0 && length == 0){
-                                return 0;
-                            }
+                        <code id="subset-sum-problem-code">
+                            <span class="dataType">int</span> subSetProblem(<span class="dataType">int[] </span>array, <span class="dataType">int </span>length, <span class="dataType">int </span>totalSum){
+                                <span class="keyword">if </span>(totalSum <span class="operator">==</span> 0){
+                                    <span class="keyword">return </span>1;
+                                }
+                                <span class="keyword">else if </span>(totalSum <span class="operator">!=</span> 0 && length <span class="operator">==</span> 0){
+                                    <span class="keyword">return </span>0;
+                                }
 
-                            if (dp[length][totalSum] != 0){
-                                return dp[length][totalSum];
-                            }
+                                <span class="keyword">if </span>(dp[length][totalSum] <span class="operator">!=</span> 0){
+                                    <span class="keyword">return </span>dp[length][totalSum];
+                                }
 
-                            if (totalSum > array[length-1])
-                                return dp[length][totalSum] = subSetProblem(array, length-1, totalSum-array[length-1]) | subSetProblem(array, length-1, totalSum);
-                            else
-                            return dp[length][totalSum] = subSetProblem(array, length-1, totalSum);
-                        }
+                                <span class="keyword">if </span>(totalSum<span class="operator"> > </span>array[length-1])
+                                    <span class="keyword">return </span>dp[length][totalSum]<span class="operator"> = </span>subSetProblem(array, length-1, totalSum-array[length-1]) |
+                                                                    subSetProblem(array, length-1, totalSum);
+                                <span class="keyword">else </span>
+                                <span class="keyword">return </span>dp[length][totalSum]<span class="operator"> = </span>subSetProblem(array, length-1, totalSum);
+                            }
+                        </code>
                     </pre>
                 </div>
             </div>
@@ -229,21 +234,24 @@
             </div>
             <div class="card mb-5">
                 <div class="card-body">
+                    <button type="button" class="btn mr-auto" onclick="copy('#maximize-profit-problem-code')">copy</button>
                     <pre style="font-size:20px">
-                        int knapsackProblem(int[] value, int[] wt, int weight, int length){
-                            if (length == 0 && weight == 0){
-                                return 0;
+                        <code id="maximize-profit-problem-code">
+                            <span class="dataType">int </span>knapsackProblem(<span class="dataType">int[] </span>value, <span class="dataType">int[] </span>wt, <span class="dataType">int </span>weight, <span class="dataType">int </span>length){
+                                <span class="keyword">if </span>(length <span class="operator">==</span> 0 && weight <span class="operator">==</span> 0){
+                                    <span class="keyword">return </span>0;
+                                }
+                                <span class="keyword">if </span>(dp[length-1][weight-1] <span class="operator">!=</span> -1){
+                                    <span class="keyword">return </span>dp[length-1][weight-1];
+                                }
+                                <span class="keyword">if </span>(weight<span class="operator"> > </span>wt[length-1]){
+                                    <span class="keyword">return </span>dp[length-1][weight-1]<span class="operator"> = </span>Math.max(value[length-1]+knapsackProblem(value,wt, weight-wt[length-1],length-1), knapsackProblem(value, wt, weight, length-1));
+                                }
+                                <span class="keyword">else </span>{
+                                    <span class="keyword">return </span>dp[length-1][weight-1]<span class="operator"> = </span>knapsackProblem(value, wt, weight, length-1);
+                                }
                             }
-                            if (dp[length-1][weight-1] != -1){
-                                return dp[length-1][weight-1];
-                            }
-                            if (weight > wt[length-1]){
-                                return dp[length-1][weight-1] = Math.max(value[length-1]+knapsackProblem(value,wt, weight-wt[length-1],length-1), knapsackProblem(value, wt, weight, length-1));
-                            }
-                            else{
-                                return dp[length-1][weight-1] = knapsackProblem(value, wt, weight, length-1);
-                            }
-                        }
+                        </code>
                     </pre>
                 </div>
             </div>
@@ -257,24 +265,27 @@
             </div>
             <div class="card mb-5">
                 <div class="card-body">
+                    <button type="button" class="btn mr-auto" onclick="copy('#coin-change-problem-code')">copy</button>
                     <pre style="font-size:20px">
-                        int coinChangeProblem(int[] value, int length, int totalValue){
-                            if (totalValue == 0){
-                                return 1;
-                            }
-                            else if (totalValue != 0 && length == 0){
-                                return 0;
-                            }
+                        <code id="coin-change-problem-code">
+                            <span class="dataType">int </span>coinChangeProblem(<span class="dataType">int[] </span>value, <span class="dataType">int </span>length, <span class="dataType">int </span>totalValue){
+                                <span class="keyword">if </span>(totalValue <span class="operator">==</span> 0){
+                                    <span class="keyword">return </span>1;
+                                }
+                                <span class="keyword">else if </span>(totalValue <span class="operator">!=</span> 0 && length <span class="operator">==</span> 0){
+                                    <span class="keyword">return </span>0;
+                                }
 
-                            if (dp[length][totalValue] != 0){
-                                return dp[length][totalValue];
-                            }
+                                <span class="keyword">if </span>(dp[length][totalValue] <span class="operator">!=</span> 0){
+                                    <span class="keyword">return </span>dp[length][totalValue];
+                                }
 
-                            if (totalValue > value[length-1])
-                                return dp[length][totalValue] = coinChangeProblem(value, length, totalValue - value[length-1]) + coinChangeProblem(value, length-1, totalValue);
-                            else
-                                return dp[length][totalValue] = coinChangeProblem(value, length-1, totalValue);
-                        }
+                                <span class="keyword">if </span>(totalValue<span class="operator"> > </span>value[length-1])
+                                    <span class="keyword">return </span>dp[length][totalValue]<span class="operator"> = </span>coinChangeProblem(value, length, totalValue - value[length-1]) + coinChangeProblem(value, length-1, totalValue);
+                                <span class="keyword">else </span>
+                                    <span class="keyword">return </span>dp[length][totalValue]<span class="operator"> = </span>coinChangeProblem(value, length-1, totalValue);
+                            }
+                        </code>
                     </pre>
                 </div>
             </div>
@@ -284,21 +295,24 @@
             </div>
             <div class="card mb-5">
                 <div class="card-body">
+                    <button type="button" class="btn mr-auto" onclick="copy('#Rode-cutting-problem-code')">copy</button>
                     <pre style="font-size:20px">
-                        int knapsackProblem(int[] price, int[] length, int totalLength, int lengthOfArray){
-                            if (lengthOfArray == 0 && totalLength == 0){
-                                return 0;
+                        <code id="Rode-cutting-problem-code">
+                            <span class="dataType">int </span>knapsackProblem(<span class="dataType">int[] </span>price, <span class="dataType">int[] </span>length, <span class="dataType">int </span>totalLength, <span class="dataType">int </span>lengthOfArray){
+                                <span class="keyword">if </span>(lengthOfArray <span class="operator">==</span> 0 && totalLength <span class="operator">==</span> 0){
+                                    <span class="keyword">return </span>0;
+                                }
+                                <span class="keyword">if </span>(dp[lengthOfArray][totalLength] <span class="operator">!=</span> -1){
+                                    <span class="keyword">return </span>dp[lengthOfArray -1][totalLength -1];
+                                }
+                                <span class="keyword">if </span>(totalLength<span class="operator"> > </span>length[lengthOfArray -1]){
+                                    <span class="keyword">return </span>dp[lengthOfArray][totalLength]<span class="operator"> = </span>Math.max(price[lengthOfArray -1]+knapsackProblem(price, length, totalLength - length[lengthOfArray], lengthOfArray), knapsackProblem(price, length, totalLength, lengthOfArray -1));
+                                }
+                                <span class="keyword">else </span>{
+                                    <span class="keyword">return </span>dp[lengthOfArray][totalLength]<span class="operator"> = </span>knapsackProblem(price, length, totalLength, lengthOfArray -1);
+                                }
                             }
-                            if (dp[lengthOfArray][totalLength] != -1){
-                                return dp[lengthOfArray -1][totalLength -1];
-                            }
-                            if (totalLength > length[lengthOfArray -1]){
-                                return dp[lengthOfArray][totalLength] = Math.max(price[lengthOfArray -1]+knapsackProblem(price, length, totalLength - length[lengthOfArray], lengthOfArray), knapsackProblem(price, length, totalLength, lengthOfArray -1));
-                            }
-                            else{
-                                return dp[lengthOfArray][totalLength] = knapsackProblem(price, length, totalLength, lengthOfArray -1);
-                            }
-                        }
+                        </code>
                     </pre>
                 </div>
             </div>
@@ -311,25 +325,28 @@
                 <h5 class="card-header">Longest common subsequence problem</h5>
             </div>
             <div class="card mb-5">
+                <button type="button" class="btn mr-auto" onclick="copy('#longest-common-subsequences-problem-code')">copy</button>
                 <div class="card-body">
                     <pre style="font-size:20px">
-                        int findLongestCommonSubsequenceUsingTopDown(char[] str1, int m, char[] str2, int n){
-                            int[][] dp = new int[m][n];
+                        <code id="longest-common-subsequences-problem-code">
+                            <span class="dataType">int </span>findLongestCommonSubsequenceUsingTopDown(char[] str1, <span class="dataType">int </span>m, char[] str2, <span class="dataType">int </span>n){
+                                <span class="dataType">int[] </span>dp<span class="operator"> = </span>new int[m][n];
 
-                            for (int i = 0; i < m; i++) {
-                                dp[i][0] = 0;
-                            }
-                            for (int i = 0; i < m; i++) {
-                                for (int j = 0; j < n; j++) {
-                                    if (str1[i-1] == str2[j-1])
-                                        dp[i][j] = 1+dp[i-1][j-1];
-                                    else
-                                        dp[i][j] = Math.max(dp[i][j-1],dp[i-1][j]);
+                                for (<span class="dataType">int </span>i<span class="operator"> = </span>0; i < m; i++) {
+                                    dp[i][0]<span class="operator"> = </span>0;
                                 }
-                            }
+                                for (<span class="dataType">int </span>i<span class="operator"> = </span>0; i < m; i++) {
+                                    for (<span class="dataType">int </span>j<span class="operator"> = </span>0; j < n; j++) {
+                                        <span class="keyword">if </span>(str1[i-1] <span class="operator">==</span> str2[j-1])
+                                            dp[i][j]<span class="operator"> = </span>1+dp[i-1][j-1];
+                                        <span class="keyword">else </span>
+                                            dp[i][j]<span class="operator"> = </span>Math.max(dp[i][j-1],dp[i-1][j]);
+                                    }
+                                }
 
-                            return dp[m][n];
-                        }
+                                <span class="keyword">return </span>dp[m][n];
+                            }
+                        </code>
                     </pre>
                 </div>
             </div>
@@ -339,18 +356,21 @@
             </div>
             <div class="card mb-5">
                 <div class="card-body">
+                    <button type="button" class="btn mr-auto" onclick="copy('#longest-common-substring-problem-code')">copy</button>
                     <pre style="font-size:20px">
-                        int findLongestCommonString(char[] str1, int m, char[] str2, int n){
-                            if (n==0 && m==0){
-                                return 0;
+                        <code id="longest-common-substring-problem-code">
+                            <span class="dataType">int </span>findLongestCommonString(char[] str1, <span class="dataType">int </span>m, char[] str2, <span class="dataType">int </span>n){
+                                <span class="keyword">if </span>(n<span class="operator">==</span>0 && m<span class="operator">==</span>0){
+                                    <span class="keyword">return </span>0;
+                                }
+                                <span class="keyword">if </span>(dp[m][n] <span class="operator">==</span> -1)
+                                    <span class="keyword">return </span>dp[m][n];
+                                <span class="keyword">if </span>(str1[m-1] <span class="operator">==</span> str2[n-1])
+                                    <span class="keyword">return </span>dp[m][n]<span class="operator"> = </span>1+findLongestCommonString(str1,m-1, str2, n-1);
+                                <span class="keyword">else </span>
+                                    <span class="keyword">return </span>dp[m][n]<span class="operator"> = </span>0;
                             }
-                            if (dp[m][n] == -1)
-                                return dp[m][n];
-                            if (str1[m-1] == str2[n-1])
-                                return dp[m][n] = 1+findLongestCommonString(str1,m-1, str2, n-1);
-                            else
-                                return dp[m][n] = 0;
-                        }
+                        </code>
                     </pre>
                 </div>
             </div>
@@ -360,16 +380,19 @@
             </div>
             <div class="card mb-5">
                 <div class="card-body">
+                    <button type="button" class="btn mr-auto" onclick="copy('#longest-palindromic-subsequence-problem-code')">copy</button>
                     <pre style="font-size:20px">
-                        int longestPalindromicSubsequence(String str){
-                            char[] charArray = str.toCharArray();
-                            char[] reverseCharArray = new char[str.length()];
-                            int k=0;
-                            for (int i = str.length()-1; i >=0 ; i--) {
-                                reverseCharArray[k++]  = charArray[i];
+                        <code id="longest-palindromic-subsequence-problem-code">
+                            <span class="dataType">int </span>longestPalindromicSubsequence(String str){
+                                char[] charArray<span class="operator"> = </span>str.toCharArray();
+                                char[] reverseCharArray<span class="operator"> = </span>new char[str.length()];
+                                <span class="dataType">int </span>k=0;
+                                for (<span class="dataType">int </span>i<span class="operator"> = </span>str.length()-1; i >=0 ; i--) {
+                                    reverseCharArray[k++] <span class="operator"> = </span>charArray[i];
+                                }
+                                <span class="keyword">return </span>findLongestCommonSubsequence(charArray,str.length(),reverseCharArray,str.length());
                             }
-                            return findLongestCommonSubsequence(charArray,str.length(),reverseCharArray,str.length());
-                        }
+                        </code>
                     </pre>
                 </div>
             </div>
@@ -379,11 +402,14 @@
             </div>
             <div class="card mb-5">
                 <div class="card-body">
+                    <button type="button" class="btn mr-auto" onclick="copy('#shortest-common-super-sequence-problem-code')">copy</button>
                     <pre style="font-size:20px">
-                        int shortestCommonSuperSequence(String str1, String str2){
-                            int length = findLongestCommonSubsequence(str1.toCharArray(),str1.length(),str2.toCharArray(),str2.length());
-                            return str1.length()+str2.length()-length;
-                        }
+                        <code id="shortest-common-super-sequence-problem-code">
+                            <span class="dataType">int </span>shortestCommonSuperSequence(String str1, String str2){
+                                <span class="dataType">int </span>length<span class="operator"> = </span>findLongestCommonSubsequence(str1.toCharArray(),str1.length(),str2.toCharArray(),str2.length());
+                                <span class="keyword">return </span>str1.length()+str2.length()-length;
+                            }
+                        </code>
                     </pre>
                 </div>
             </div>
@@ -397,23 +423,26 @@
             </div>
             <div class="card mb-5">
                 <div class="card-body">
+                    <button type="button" class="btn mr-auto" onclick="copy('#matrix-chain-multiplications-problem-code')">copy</button>
                     <pre style="font-size:20px">
-                        int findMatrixChainMultiplication(int[] array, int left, int right){
-                           if (left <= right){
-                               return 0;
-                           }
-                            if (dp[left][right] != -1)
-                                return dp[left][right];
-                           int minimumMultiplication =Integer.MAX_VALUE;
+                        <code id="matrix-chain-multiplications-problem-code">
+                            <span class="dataType">int </span>findMatrixChainMultiplication(<span class="dataType">int[] </span>array, <span class="dataType">int </span>left, <span class="dataType">int </span>right){
+                               <span class="keyword">if </span>(left <= right){
+                                   <span class="keyword">return </span>0;
+                               }
+                                <span class="keyword">if </span>(dp[left][right] <span class="operator">!=</span> -1)
+                                    <span class="keyword">return </span>dp[left][right];
+                               <span class="dataType">int </span>minimumMultiplication =Integer.MAX_VALUE;
 
-                           for (int i = left; i <right ; i++) {
-                                                       int temp = findMatrixChainMultiplication(array,left,i)+findMatrixChainMultiplication(array,i+1,right)+array[left]*array[i]*array[right];
-                                                       if (temp < minimumMultiplication)
-                                   minimumMultiplication = temp;
-                           }
+                               for (<span class="dataType">int </span>i<span class="operator"> = </span>left; i <right ; i++) {
+                                                           <span class="dataType">int </span>temp<span class="operator"> = </span>findMatrixChainMultiplication(array,left,i)+findMatrixChainMultiplication(array,i+1,right)+array[left]*array[i]*array[right];
+                                                           <span class="keyword">if </span>(temp < minimumMultiplication)
+                                       minimumMultiplication<span class="operator"> = </span>temp;
+                               }
 
-                           return dp[left][right] = minimumMultiplication;
-                       }
+                               <span class="keyword">return </span>dp[left][right]<span class="operator"> = </span>minimumMultiplication;
+                           }
+                        </code>
                     </pre>
                 </div>
             </div>
@@ -423,22 +452,25 @@
             </div>
             <div class="card mb-5">
                 <div class="card-body">
+                    <button type="button" class="btn mr-auto" onclick="copy('#palindrome-partitioning-problem-code')">copy</button>
                     <pre style="font-size:20px">
-                        int findPartitionToMakePalindrome(char[] charArray, int left, int right){
-                            if (left >= right)
-                                return 0;
-                            if (findPalindrome(charArray))
-                                return 0;
-                            if (dp[left][right] != -1)
-                                return dp[left][right];
-                            int minimumPartition = Integer.MAX_VALUE;
-                            for (int i = left; i < right; i++) {
-                                int temp = findPartitionToMakePalindrome(charArray,left,i)+findPartitionToMakePalindrome(charArray,i+1, right)+1;
-                                if (temp < minimumPartition)
-                                    minimumPartition = temp;
+                        <code id="palindrome-partitioning-problem-code">
+                            <span class="dataType">int </span>findPartitionToMakePalindrome(char[] charArray, <span class="dataType">int </span>left, <span class="dataType">int </span>right){
+                                <span class="keyword">if </span>(left >= right)
+                                    <span class="keyword">return </span>0;
+                                <span class="keyword">if </span>(findPalindrome(charArray))
+                                    <span class="keyword">return </span>0;
+                                <span class="keyword">if </span>(dp[left][right] <span class="operator">!=</span> -1)
+                                    <span class="keyword">return </span>dp[left][right];
+                                <span class="dataType">int </span>minimumPartition<span class="operator"> = </span>Integer.MAX_VALUE;
+                                for (<span class="dataType">int </span>i<span class="operator"> = </span>left; i < right; i++) {
+                                    <span class="dataType">int </span>temp<span class="operator"> = </span>findPartitionToMakePalindrome(charArray,left,i)+findPartitionToMakePalindrome(charArray,i+1, right)+1;
+                                    <span class="keyword">if </span>(temp < minimumPartition)
+                                        minimumPartition<span class="operator"> = </span>temp;
+                                }
+                                <span class="keyword">return </span>dp[left][right]<span class="operator"> = </span>minimumPartition;
                             }
-                            return dp[left][right] = minimumPartition;
-                        }
+                        </code>
                     </pre>
                 </div>
             </div>
@@ -448,49 +480,52 @@
             </div>
             <div class="card mb-5">
                 <div class="card-body">
+                    <button type="button" class="btn mr-auto" onclick="copy('#evaluate-boolean-expression-problem-code')">copy</button>
                     <pre style="font-size:20px">
-                        int findNumberOfPartitionToMakeExpressionTrue(char[] charArray, int left, int right, char isTrue){
-                            if (left > right)
-                                return 0;
-                            if (left == right){
-                                if (isTrue == charArray[left])
-                                    return 1;
-                                else
-                                    return 0;
-                            }
-                            String key = left+" "+right+" "+isTrue;
-                            if (dp.containsKey(key))
-                                return dp.get(key);
-                            int ans=0;
-                            for (int i = left+1; i < left; i+=2) {
-                                int leftTrue = findNumberOfPartitionToMakeExpressionTrue(charArray, left, i-1, 'T');
-                                int leftFalse = findNumberOfPartitionToMakeExpressionTrue(charArray, left, i-1, 'F');
-                                int rightTrue = findNumberOfPartitionToMakeExpressionTrue(charArray, i+1, right, 'T');
-                                int rightFalse = findNumberOfPartitionToMakeExpressionTrue(charArray, i+1, right, 'F');
-                                switch (charArray[i]){
-                                    case '&':
-                                        if (isTrue == 'T')
-                                            ans += leftTrue & rightTrue;
-                                        else
-                                            ans += leftTrue & rightFalse + leftFalse & rightTrue + leftFalse & rightFalse;
-                                        break;
-                                    case '|':
-                                        if (isTrue == 'T')
-                                            ans += leftTrue | rightTrue + leftFalse | rightTrue + leftTrue | rightFalse;
-                                        else
-                                            ans += leftFalse | rightFalse;
-                                        break;
-                                    case '^':
-                                        if (isTrue == 'T')
-                                            ans += leftTrue ^ rightFalse + leftFalse ^ rightTrue;
-                                        else
-                                            ans += leftTrue ^ rightTrue + leftFalse ^ rightFalse;
-                                        break;
+                        <code id="evaluate-boolean-expression-problem-code">
+                            <span class="dataType">int </span>findNumberOfPartitionToMakeExpressionTrue(char[] charArray, <span class="dataType">int </span>left, <span class="dataType">int </span>right, char isTrue){
+                                <span class="keyword">if </span>(left<span class="operator"> > </span>right)
+                                    <span class="keyword">return </span>0;
+                                <span class="keyword">if </span>(left <span class="operator">==</span> right){
+                                    <span class="keyword">if </span>(isTrue <span class="operator">==</span> charArray[left])
+                                        <span class="keyword">return </span>1;
+                                    <span class="keyword">else </span>
+                                        <span class="keyword">return </span>0;
                                 }
+                                String key<span class="operator"> = </span>left+" "+right+" "+isTrue;
+                                <span class="keyword">if </span>(dp.containsKey(key))
+                                    <span class="keyword">return </span>dp.get(key);
+                                <span class="dataType">int </span>ans=0;
+                                for (<span class="dataType">int </span>i<span class="operator"> = </span>left+1; i < left; i+=2) {
+                                    <span class="dataType">int </span>leftTrue<span class="operator"> = </span>findNumberOfPartitionToMakeExpressionTrue(charArray, left, i-1, 'T');
+                                    <span class="dataType">int </span>leftFalse<span class="operator"> = </span>findNumberOfPartitionToMakeExpressionTrue(charArray, left, i-1, 'F');
+                                    <span class="dataType">int </span>rightTrue<span class="operator"> = </span>findNumberOfPartitionToMakeExpressionTrue(charArray, i+1, right, 'T');
+                                    <span class="dataType">int </span>rightFalse<span class="operator"> = </span>findNumberOfPartitionToMakeExpressionTrue(charArray, i+1, right, 'F');
+                                    switch (charArray[i]){
+                                        case '&':
+                                            <span class="keyword">if </span>(isTrue <span class="operator">==</span> 'T')
+                                                ans += leftTrue & rightTrue;
+                                            <span class="keyword">else </span>
+                                                ans += leftTrue & rightFalse + leftFalse & rightTrue + leftFalse & rightFalse;
+                                            break;
+                                        case '|':
+                                            <span class="keyword">if </span>(isTrue <span class="operator">==</span> 'T')
+                                                ans += leftTrue | rightTrue + leftFalse | rightTrue + leftTrue | rightFalse;
+                                            <span class="keyword">else </span>
+                                                ans += leftFalse | rightFalse;
+                                            break;
+                                        case '^':
+                                            <span class="keyword">if </span>(isTrue <span class="operator">==</span> 'T')
+                                                ans += leftTrue ^ rightFalse + leftFalse ^ rightTrue;
+                                            <span class="keyword">else </span>
+                                                ans += leftTrue ^ rightTrue + leftFalse ^ rightFalse;
+                                            break;
+                                    }
+                                }
+                                dp.put(key,ans);
+                                <span class="keyword">return </span>ans;
                             }
-                            dp.put(key,ans);
-                            return ans;
-                        }
+                        </code>
                     </pre>
                 </div>
             </div>
@@ -757,6 +792,15 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
 <script type="text/javascript">
+        function copy(selector) {
+          const copyText = $(selector).text();
+          const textArea = $('<textarea>');
+          textArea.text(copyText);
+          $('body').append(textArea);
+          textArea.select();
+          document.execCommand("copy");
+          textArea.remove();
+        }
         $(document).ready(function () {
             $("#sidebar").mCustomScrollbar({
                 theme: "minimal"
@@ -767,6 +811,15 @@
                 $('.collapse.in').toggleClass('in');
                 $('a[aria-expanded=true]').attr('aria-expanded', 'false');
             });
+
+            //removing white space from left
+            $("pre code").each(function(){
+                var html = $(this).html();
+                var pattern = html.match(/\s*\n[\t\s]*/);
+                $(this).html(html.replace(new RegExp(pattern, "g"),'\n'));
+            });
+
+
         });
     </script>
 </body>
